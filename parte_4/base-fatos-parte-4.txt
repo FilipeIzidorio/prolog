@@ -6,7 +6,7 @@ mora(daniel, bosque).
 mora(elaine, jardim).
 mora(fernando, bosque).
 
-% Relaciona bairros às regiões
+% Relaciona bairros Ã s regiÃµes
 pertence(centro, norte).
 pertence(jardim, norte).
 pertence(bosque, sul).
@@ -20,3 +20,12 @@ amigo(elaine, fernando).
 % Define quem tem carro
 tem_carro(ana).
 tem_carro(daniel).
+
+% Regra para dar carona
+pode_dar_carona(Pessoa1, Pessoa2) :-
+    tem_carro(Pessoa1),
+    mora(Pessoa1, Bairro1),
+    mora(Pessoa2, Bairro2),
+    pertence(Bairro1, Regiao),
+    pertence(Bairro2, Regiao),
+    Regiao = cidade_norte.
